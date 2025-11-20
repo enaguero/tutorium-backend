@@ -1,4 +1,5 @@
 from sqlalchemy import Boolean, Column, Integer, String
+from sqlalchemy.orm import relationship
 
 from app.db.base import Base
 
@@ -12,3 +13,7 @@ class User(Base):
     full_name = Column(String)
     is_active = Column(Boolean, default=True)
     is_superuser = Column(Boolean, default=False)
+    
+    # Relationships
+    sessions = relationship("Session", back_populates="teacher")
+    session_participations = relationship("SessionParticipant", back_populates="user")
