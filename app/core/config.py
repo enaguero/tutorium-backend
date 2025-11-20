@@ -17,6 +17,12 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
+    # Daily.co Integration
+    DAILY_API_KEY: str = ""
+    DAILY_DOMAIN: str = "tutorium.daily.co"
+    DAILY_WEBHOOK_SECRET: str = ""
+    DAILY_API_BASE_URL: str = "https://api.daily.co/v1"
+    
     class Config:
         env_file = ".env"
         case_sensitive = True
