@@ -34,27 +34,33 @@ This document outlines the implementation order and priorities for all Tutorium 
 ---
 
 ### Phase 2: Teaching Sessions with Screen Sharing (Current)
-**Status**: 🚧 In Progress  
+**Status**: 🚧 In Progress (25% complete - 2/8 steps)  
 **Priority**: P0 (Critical)  
 **Estimated Time**: 4 weeks  
 **Feature Doc**: [`docs/features/01-screen-sharing.md`](features/01-screen-sharing.md)
 
+**Progress**:
+- ✅ Step 1: Environment Setup (PR #2)
+- ✅ Step 2: Database Models (PR #3)
+- ⏳ Step 3: Pydantic Schemas (IN PROGRESS)
+- ⏳ Step 4-8: Pending
+
 #### 2.1 Overview
 Enable teachers to create virtual rooms and share their screen with one or multiple students using Daily.co's WebRTC infrastructure.
 
-#### 2.2 Sub-tasks
+#### 2.2 Implementation Steps
 
-**Week 1: Core Infrastructure**
-1. Daily.co integration setup
-   - Add API credentials to configuration
-   - Create Daily.co API client service
-   - Implement room creation and token generation
+**Step 1: Environment Setup** ✅ COMPLETED (PR #2)
+- ✅ Add Daily.co config to `app/core/config.py`
+- ✅ Update `.env.example` with Daily.co vars
+- ✅ Create setup guide: `docs/DAILY_SETUP.md`
+- ⏳ Get Daily.co API key (user action required)
 
-2. Database models
-   - Session model (room metadata, Daily.co integration)
-   - SessionParticipant model (track who's in the room)
-   - SessionEvent model (audit log)
-   - User model updates (relationships)
+**Step 2: Database Models** ✅ COMPLETED (PR #3)
+- ✅ Session model (daily_room_name: 255, daily_room_url: 512)
+- ✅ SessionParticipant model (role, connection status)
+- ✅ SessionEvent model (audit log)
+- ✅ User model updates (relationships)
 
 3. Pydantic schemas
    - Session create/update/response schemas
